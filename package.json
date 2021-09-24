@@ -18,7 +18,8 @@
 		"build": "tsc",
 		"build:check": "tsc --noEmit --incremental false",
 		"docs": "typedoc src/index.ts",
-		"prepublishOnly": "rollup-type-bundler -e stream"
+		"prepublishOnly": "rollup-type-bundler -e stream",
+		"prepare": "npm run build"
 	},
 	"repository": {
 		"type": "git",
