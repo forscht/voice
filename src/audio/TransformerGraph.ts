@@ -147,7 +147,16 @@ const FFMPEG_PCM_EDGE: Omit<Edge, 'from'> = {
 	cost: 2,
 	transformer: (input) =>
 		new prism.FFmpeg({
-			args: typeof input === 'string' ? ['-i', input, ...FFMPEG_PCM_ARGUMENTS] : FFMPEG_PCM_ARGUMENTS,
+			args:
+				typeof input === 'string'
+					? [
+							'-headers',
+							'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15',
+							'-i',
+							input,
+							...FFMPEG_PCM_ARGUMENTS,
+					  ]
+					: FFMPEG_PCM_ARGUMENTS,
 		}),
 };
 
